@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "upload": "git add . && git commit -m 'update' && git push origin main npm run publish",
+    "upload": "git add . && git commit -m 'update' && git push origin main &&npm run publish",
     "build": "tsc -p tsconfig.json",
     "publish": "npm run clean && npm run build",
     "clean": "rimraf dist"
