@@ -24,3 +24,4 @@ __exportStar(require("./school.schema"), exports);
 __exportStar(require("./user.schema"), exports);
 __exportStar(require("./app.types"), exports);
 __exportStar(require("./student.schema"), exports);
+__exportStar(require("./validatior"), exports);

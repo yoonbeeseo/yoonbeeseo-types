@@ -12,6 +12,7 @@ export const bareUserSchema = z.object({
   dob: z.string().length(8).nullable().default(null),
   mobile: z.string().length(11).nullable().default(null),
   profile_img: z.string().url().nullable().default(null),
+  email: z.string().email(),
 })
 
 export const bareUserWithoutIdSchema = bareUserSchema.omit({ id: true })
@@ -35,6 +36,7 @@ export const initialBareUserWithoutId: BareUserWithoutId = {
   mobile: null,
   name: "윤비서",
   profile_img: null,
+  email: "",
 }
 export const initialBareUser: BareUser = {
   ...initialBareUserWithoutId,
