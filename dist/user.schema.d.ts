@@ -4,36 +4,47 @@ export declare const bareUserSchema: z.ZodObject<{
     name: z.ZodString;
     dob: z.ZodDefault<z.ZodNullable<z.ZodString>>;
     mobile: z.ZodDefault<z.ZodNullable<z.ZodString>>;
+    profile_img: z.ZodDefault<z.ZodNullable<z.ZodString>>;
 }, "strip", z.ZodTypeAny, {
     name: string;
     id: string;
     mobile: string | null;
     dob: string | null;
+    profile_img: string | null;
 }, {
     name: string;
     id: string;
     mobile?: string | null | undefined;
     dob?: string | null | undefined;
+    profile_img?: string | null | undefined;
 }>;
 export declare const bareUserWithoutIdSchema: z.ZodObject<Omit<{
     id: z.ZodString;
     name: z.ZodString;
     dob: z.ZodDefault<z.ZodNullable<z.ZodString>>;
     mobile: z.ZodDefault<z.ZodNullable<z.ZodString>>;
+    profile_img: z.ZodDefault<z.ZodNullable<z.ZodString>>;
 }, "id">, "strip", z.ZodTypeAny, {
     name: string;
     mobile: string | null;
     dob: string | null;
+    profile_img: string | null;
 }, {
     name: string;
     mobile?: string | null | undefined;
     dob?: string | null | undefined;
+    profile_img?: string | null | undefined;
 }>;
 export declare const userSchema: z.ZodIntersection<z.ZodObject<{
     createdAt: z.ZodDefault<z.ZodDate>;
     updatedAt: z.ZodOptional<z.ZodDate>;
 } & {
     bizinfo: z.ZodDefault<z.ZodNullable<z.ZodObject<{
+        createdAt: z.ZodDefault<z.ZodDate>;
+        updatedAt: z.ZodOptional<z.ZodDate>;
+    } & {
+        id: z.ZodString;
+    } & {
         name: z.ZodString;
         ceo: z.ZodString;
         regi: z.ZodString;
@@ -45,21 +56,27 @@ export declare const userSchema: z.ZodIntersection<z.ZodObject<{
         uid: z.ZodString;
     }, "strip", z.ZodTypeAny, {
         name: string;
+        id: string;
         address: string;
         desc: string | null;
+        createdAt: Date;
+        uid: string;
         ceo: string;
         regi: string;
         emails: string[];
         tels: string[];
         sns: string[];
-        uid: string;
+        updatedAt?: Date | undefined;
     }, {
         name: string;
+        id: string;
         address: string;
+        uid: string;
         ceo: string;
         regi: string;
-        uid: string;
         desc?: string | null | undefined;
+        createdAt?: Date | undefined;
+        updatedAt?: Date | undefined;
         emails?: string[] | undefined;
         tels?: string[] | undefined;
         sns?: string[] | undefined;
@@ -144,6 +161,11 @@ export declare const userSchema: z.ZodIntersection<z.ZodObject<{
         }>, "many">>;
         uid: z.ZodString;
         bizinfo: z.ZodObject<{
+            createdAt: z.ZodDefault<z.ZodDate>;
+            updatedAt: z.ZodOptional<z.ZodDate>;
+        } & {
+            id: z.ZodString;
+        } & {
             name: z.ZodString;
             ceo: z.ZodString;
             regi: z.ZodString;
@@ -155,21 +177,27 @@ export declare const userSchema: z.ZodIntersection<z.ZodObject<{
             uid: z.ZodString;
         }, "strip", z.ZodTypeAny, {
             name: string;
+            id: string;
             address: string;
             desc: string | null;
+            createdAt: Date;
+            uid: string;
             ceo: string;
             regi: string;
             emails: string[];
             tels: string[];
             sns: string[];
-            uid: string;
+            updatedAt?: Date | undefined;
         }, {
             name: string;
+            id: string;
             address: string;
+            uid: string;
             ceo: string;
             regi: string;
-            uid: string;
             desc?: string | null | undefined;
+            createdAt?: Date | undefined;
+            updatedAt?: Date | undefined;
             emails?: string[] | undefined;
             tels?: string[] | undefined;
             sns?: string[] | undefined;
@@ -188,14 +216,17 @@ export declare const userSchema: z.ZodIntersection<z.ZodObject<{
         targetIds: string[];
         bizinfo: {
             name: string;
+            id: string;
             address: string;
             desc: string | null;
+            createdAt: Date;
+            uid: string;
             ceo: string;
             regi: string;
             emails: string[];
             tels: string[];
             sns: string[];
-            uid: string;
+            updatedAt?: Date | undefined;
         };
         updatedAt?: Date | undefined;
     }, {
@@ -203,11 +234,14 @@ export declare const userSchema: z.ZodIntersection<z.ZodObject<{
         title: string;
         bizinfo: {
             name: string;
+            id: string;
             address: string;
+            uid: string;
             ceo: string;
             regi: string;
-            uid: string;
             desc?: string | null | undefined;
+            createdAt?: Date | undefined;
+            updatedAt?: Date | undefined;
             emails?: string[] | undefined;
             tels?: string[] | undefined;
             sns?: string[] | undefined;
@@ -252,14 +286,17 @@ export declare const userSchema: z.ZodIntersection<z.ZodObject<{
     createdAt: Date;
     bizinfo: {
         name: string;
+        id: string;
         address: string;
         desc: string | null;
+        createdAt: Date;
+        uid: string;
         ceo: string;
         regi: string;
         emails: string[];
         tels: string[];
         sns: string[];
-        uid: string;
+        updatedAt?: Date | undefined;
     } | null;
     parents: {
         name: string;
@@ -292,14 +329,17 @@ export declare const userSchema: z.ZodIntersection<z.ZodObject<{
         targetIds: string[];
         bizinfo: {
             name: string;
+            id: string;
             address: string;
             desc: string | null;
+            createdAt: Date;
+            uid: string;
             ceo: string;
             regi: string;
             emails: string[];
             tels: string[];
             sns: string[];
-            uid: string;
+            updatedAt?: Date | undefined;
         };
         updatedAt?: Date | undefined;
     }[];
@@ -335,11 +375,14 @@ export declare const userSchema: z.ZodIntersection<z.ZodObject<{
         title: string;
         bizinfo: {
             name: string;
+            id: string;
             address: string;
+            uid: string;
             ceo: string;
             regi: string;
-            uid: string;
             desc?: string | null | undefined;
+            createdAt?: Date | undefined;
+            updatedAt?: Date | undefined;
             emails?: string[] | undefined;
             tels?: string[] | undefined;
             sns?: string[] | undefined;
@@ -367,11 +410,14 @@ export declare const userSchema: z.ZodIntersection<z.ZodObject<{
     updatedAt?: Date | undefined;
     bizinfo?: {
         name: string;
+        id: string;
         address: string;
+        uid: string;
         ceo: string;
         regi: string;
-        uid: string;
         desc?: string | null | undefined;
+        createdAt?: Date | undefined;
+        updatedAt?: Date | undefined;
         emails?: string[] | undefined;
         tels?: string[] | undefined;
         sns?: string[] | undefined;
@@ -381,16 +427,19 @@ export declare const userSchema: z.ZodIntersection<z.ZodObject<{
     name: z.ZodString;
     dob: z.ZodDefault<z.ZodNullable<z.ZodString>>;
     mobile: z.ZodDefault<z.ZodNullable<z.ZodString>>;
+    profile_img: z.ZodDefault<z.ZodNullable<z.ZodString>>;
 }, "strip", z.ZodTypeAny, {
     name: string;
     id: string;
     mobile: string | null;
     dob: string | null;
+    profile_img: string | null;
 }, {
     name: string;
     id: string;
     mobile?: string | null | undefined;
     dob?: string | null | undefined;
+    profile_img?: string | null | undefined;
 }>>;
 export type BareUser = z.infer<typeof bareUserSchema>;
 export type BareUserWithoutId = z.infer<typeof bareUserWithoutIdSchema>;

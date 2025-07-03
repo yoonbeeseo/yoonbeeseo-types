@@ -5,7 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.initialBizinfo = exports.bizinfoWithoutUidSchema = exports.bizinfoSchema = void 0;
 const zod_1 = __importDefault(require("zod"));
-exports.bizinfoSchema = zod_1.default.object({
+const school_schema_1 = require("./school.schema");
+exports.bizinfoSchema = school_schema_1.dateWithIdSchema.extend({
     name: zod_1.default.string(),
     ceo: zod_1.default.string(),
     regi: zod_1.default.string().length(10),
@@ -26,4 +27,6 @@ exports.initialBizinfo = {
     regi: "",
     sns: [],
     tels: [],
+    id: "",
+    createdAt: new Date(),
 };

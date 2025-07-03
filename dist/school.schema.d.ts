@@ -39,9 +39,9 @@ export declare const schoolSchema: z.ZodObject<{
     sort: string;
     name: string;
     id: string;
-    uid: string;
     createdAt: Date;
     level: string | null;
+    uid: string;
     updatedAt?: Date | undefined;
 }, {
     name: string;

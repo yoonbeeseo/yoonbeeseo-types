@@ -15,8 +15,8 @@ export declare const lessonSchema: z.ZodObject<{
     sort: string;
     name: string;
     id: string;
-    uid: string;
     createdAt: Date;
+    uid: string;
     subject: string;
     updatedAt?: Date | undefined;
 }, {

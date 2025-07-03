@@ -18,7 +18,7 @@ exports.invoiceSchema = school_schema_1.dateWithIdSchema.extend({
     body: zod_1.default.array(zod_1.default.string()).default([]),
     targetIds: zod_1.default.array(zod_1.default.string()).default([]), //! target parents id
     items: zod_1.default.array(exports.invoiceItemSchema).default([]),
-    uid: zod_1.default.string(),
+    uid: zod_1.default.string(), // FOREIGN KEY
     bizinfo: bizinfo_schema_1.bizinfoSchema,
 });
 exports.invoiceWithoutUidSchema = exports.invoiceSchema.omit({ uid: true });

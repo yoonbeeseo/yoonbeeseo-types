@@ -15,6 +15,7 @@ exports.bareUserSchema = zod_1.default.object({
     name: zod_1.default.string(),
     dob: zod_1.default.string().length(8).nullable().default(null),
     mobile: zod_1.default.string().length(11).nullable().default(null),
+    profile_img: zod_1.default.string().url().nullable().default(null),
 });
 exports.bareUserWithoutIdSchema = exports.bareUserSchema.omit({ id: true });
 exports.userSchema = school_schema_1.dateSchema
@@ -30,6 +31,7 @@ exports.initialBareUserWithoutId = {
     dob: null,
     mobile: null,
     name: "윤비서",
+    profile_img: null,
 };
 exports.initialBareUser = {
     ...exports.initialBareUserWithoutId,

@@ -15,8 +15,8 @@ export declare const parentSchema: z.ZodObject<{
     name: string;
     id: string;
     mobile: string | null;
-    uid: string;
     createdAt: Date;
+    uid: string;
     relationship: string;
     hasConsent: boolean;
     updatedAt?: Date | undefined;
