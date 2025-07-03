@@ -1,11 +1,15 @@
 import z from "zod"
-import { dateWithIdSchema } from "./school.schema"
+import { dateWithIdSchema, schoolSortSchema } from "./school.schema"
+import { lessonSortSchema } from "./lesson.schema"
+
+export const extraSortSchema = lessonSortSchema.and(schoolSortSchema)
 
 export const extraSchema = dateWithIdSchema.extend({
   name: z.string(),
   price: z.number().min(0).default(0),
   desc: z.string().nullable().default(null),
   uid: z.string(), //! connects user
+  sort: extraSortSchema.nullable().default(null),
 })
 
 export type ExtraWithUid = z.infer<typeof extraSchema>
@@ -20,4 +24,5 @@ export const initialExtra: Extra = {
   id: "",
   name: "",
   price: 0,
+  sort: null,
 }

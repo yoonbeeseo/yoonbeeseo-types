@@ -1,6 +1,7 @@
 import z from "zod"
+import { dateWithIdSchema } from "./school.schema"
 
-export const bizinfoSchema = z.object({
+export const bizinfoSchema = dateWithIdSchema.extend({
   name: z.string(),
   ceo: z.string(),
   regi: z.string().length(10),
@@ -27,4 +28,6 @@ export const initialBizinfo: Bizinfo = {
   regi: "",
   sns: [],
   tels: [],
+  id: "",
+  createdAt: new Date(),
 }

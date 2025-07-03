@@ -14,7 +14,7 @@ export const invoiceSchema = dateWithIdSchema.extend({
   body: z.array(z.string()).default([]),
   targetIds: z.array(z.string()).default([]), //! target parents id
   items: z.array(invoiceItemSchema).default([]),
-  uid: z.string(),
+  uid: z.string(), // FOREIGN KEY
   bizinfo: bizinfoSchema,
 })
 

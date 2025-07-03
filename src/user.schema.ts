@@ -1,4 +1,5 @@
 import z from "zod"
+
 import { bizinfoSchema } from "./bizinfo.schema"
 import { parentWithoutUid } from "./parent.schema"
 import { dateSchema, schoolWithoutUid } from "./school.schema"
@@ -10,6 +11,7 @@ export const bareUserSchema = z.object({
   name: z.string(),
   dob: z.string().length(8).nullable().default(null),
   mobile: z.string().length(11).nullable().default(null),
+  profile_img: z.string().url().nullable().default(null),
 })
 
 export const bareUserWithoutIdSchema = bareUserSchema.omit({ id: true })
@@ -32,6 +34,7 @@ export const initialBareUserWithoutId: BareUserWithoutId = {
   dob: null,
   mobile: null,
   name: "윤비서",
+  profile_img: null,
 }
 export const initialBareUser: BareUser = {
   ...initialBareUserWithoutId,
