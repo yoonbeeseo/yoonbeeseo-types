@@ -23,3 +23,4 @@ __exportStar(require("./parent.schema"), exports);
 __exportStar(require("./school.schema"), exports);
 __exportStar(require("./user.schema"), exports);
 __exportStar(require("./app.types"), exports);
+__exportStar(require("./student.schema"), exports);

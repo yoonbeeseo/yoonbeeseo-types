@@ -7,4 +7,5 @@ export * from "./parent.schema";
 export * from "./school.schema";
 export * from "./user.schema";
 export * from "./app.types";
+export * from "./student.schema";
 //# sourceMappingURL=index.d.ts.map
