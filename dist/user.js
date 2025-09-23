@@ -19,4 +19,11 @@ exports.UserSchema = shared_1.SharedUniqueSchema.extend({
 exports.UserPayloadSchema = exports.UserSchema.omit({
     created_at: true,
     updated_at: true,
-});
+    bizinfos: true,
+    lessons: true,
+    schools: true,
+    parents: true,
+    extras: true,
+    mobile: true,
+    dob: true,
+}).extend({ mobile: shared_1.MobileSchema.nullable(), dob: shared_1.DobSchema.nullable() });

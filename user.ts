@@ -33,6 +33,13 @@ export type User = z.infer<typeof UserSchema>;
 export const UserPayloadSchema = UserSchema.omit({
   created_at: true,
   updated_at: true,
-});
+  bizinfos: true,
+  lessons: true,
+  schools: true,
+  parents: true,
+  extras: true,
+  mobile: true,
+  dob: true,
+}).extend({ mobile: MobileSchema.nullable(), dob: DobSchema.nullable() });
 
 export type UserPayload = z.infer<typeof UserPayloadSchema>;

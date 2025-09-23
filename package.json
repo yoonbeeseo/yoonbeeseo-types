@@ -1,13 +1,15 @@
 {
-  "name": "yoonbeeseo-types",
-  "version": "0.0.1",
+  "name": "@yoontec/yoonbeeseo-types",
+  "version": "0.0.12",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "dev": "nodemon --watch . --ext ts --exec \"npm run build\""
+    "dev": "nodemon --watch . --ext ts --exec \"npm run build\"",
+    "push": "git add . && git commit -m \"update\" && git push origin develop",
+    "publish": "npm publish --access public"
   },
   "repository": {
     "type": "git",
