@@ -1,0 +1,16 @@
+export type Colors = "textColor" | "backgroundColor" | "baseColor" | "borderColor" | "whitesmoke" | "lightgray" | "gray" | "darkgray" | "charcoal" | "white" | "black" | "primary" | "secondary" | "warning" | "kakao";
+export type AppColors = Record<Colors, string>;
+export declare const appColors: AppColors;
+export declare const blues: string[];
+export declare const cyans: string[];
+export declare const grapes: string[];
+export declare const grays: string[];
+export declare const greens: string[];
+export declare const indigos: string[];
+export declare const limes: string[];
+export declare const oranges: string[];
+export declare const pinks: string[];
+export declare const reds: string[];
+export declare const teals: string[];
+export declare const violets: string[];
+export declare const yellows: string[];
