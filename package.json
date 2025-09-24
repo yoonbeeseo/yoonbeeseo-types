@@ -1,6 +1,6 @@
 {
   "name": "@yoontec/yoonbeeseo-types",
-  "version": "0.0.142",
+  "version": "0.0.143",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,8 +8,7 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "dev": "nodemon --watch . --ext ts --exec \"npm run build\"",
-    "push": "git add . && git commit -m \"update\" && git push origin develop",
-    "publish": "npm publish --access public"
+    "push": "git add . && git commit -m \"update\" && git push origin develop"
   },
   "repository": {
     "type": "git",
