@@ -11,7 +11,7 @@ import { SchoolLevelSchema, SchoolSchema } from "./school.work";
 import { AddressSchema } from "./bizinfo";
 
 export const StudentMemoSchema = SharedLinkedIntSchema.extend({
-  desc: z.string(),
+  description: z.string(),
   is_important: z.boolean(),
   created_by: z.uuid(),
 });

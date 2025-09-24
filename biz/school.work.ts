@@ -21,7 +21,7 @@ export type SchoolLevel = z.infer<typeof SchoolLevelSchema>;
 
 export const SchoolEntitySchema = SharedLinkedIntSchema.extend({
   sort: SchoolSortSchema,
-  desc: SchoolLevelSchema.nullable(),
+  description: SchoolLevelSchema.nullable(),
 });
 
 export type SchoolEntity = z.infer<typeof SchoolEntitySchema>;

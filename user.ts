@@ -16,9 +16,9 @@ import {
 
 export const UserEntitySchema = SharedUniqueSchema.extend({
   name: z.string(),
-  mobile: MobileSchema,
+  mobile: MobileSchema.nullable(),
   email: EmailSchema,
-  dob: DobSchema,
+  dob: DobSchema.nullable(),
   profile_url: ImageUrlSchema,
 });
 
@@ -37,8 +37,6 @@ export type User = z.infer<typeof UserSchema>;
 export const UserPayloadSchema = UserEntitySchema.omit({
   created_at: true,
   updated_at: true,
-  mobile: true,
-  dob: true,
-}).extend({ mobile: MobileSchema.nullable(), dob: DobSchema.nullable() });
+});
 
 export type UserPayload = z.infer<typeof UserPayloadSchema>;

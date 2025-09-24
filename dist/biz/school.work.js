@@ -17,7 +17,7 @@ exports.SchoolLevelSchema = zod_1.z.enum([
 ]);
 exports.SchoolEntitySchema = shared_1.SharedLinkedIntSchema.extend({
     sort: exports.SchoolSortSchema,
-    desc: exports.SchoolLevelSchema.nullable(),
+    description: exports.SchoolLevelSchema.nullable(),
 });
 exports.SchoolSchema = exports.SchoolEntitySchema.omit({ uid: true });
 exports.SchoolPayloadSchema = exports.SchoolSchema.omit({

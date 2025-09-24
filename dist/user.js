@@ -6,9 +6,9 @@ const shared_1 = require("./shared");
 const biz_1 = require("./biz");
 exports.UserEntitySchema = shared_1.SharedUniqueSchema.extend({
     name: zod_1.z.string(),
-    mobile: shared_1.MobileSchema,
+    mobile: shared_1.MobileSchema.nullable(),
     email: shared_1.EmailSchema,
-    dob: shared_1.DobSchema,
+    dob: shared_1.DobSchema.nullable(),
     profile_url: shared_1.ImageUrlSchema,
 });
 exports.UserSchema = exports.UserEntitySchema.extend({
@@ -21,6 +21,4 @@ exports.UserSchema = exports.UserEntitySchema.extend({
 exports.UserPayloadSchema = exports.UserEntitySchema.omit({
     created_at: true,
     updated_at: true,
-    mobile: true,
-    dob: true,
-}).extend({ mobile: shared_1.MobileSchema.nullable(), dob: shared_1.DobSchema.nullable() });
+});

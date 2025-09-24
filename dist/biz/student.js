@@ -8,7 +8,7 @@ const lesson_1 = require("./lesson");
 const school_work_1 = require("./school.work");
 const bizinfo_1 = require("./bizinfo");
 exports.StudentMemoSchema = shared_1.SharedLinkedIntSchema.extend({
-    desc: zod_1.z.string(),
+    description: zod_1.z.string(),
     is_important: zod_1.z.boolean(),
     created_by: zod_1.z.uuid(),
 });
