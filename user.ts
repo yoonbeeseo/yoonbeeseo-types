@@ -14,13 +14,17 @@ import {
   SchoolSchema,
 } from "./biz";
 
-export const UserSchema = SharedUniqueSchema.extend({
+export const UserEntitySchema = SharedUniqueSchema.extend({
   name: z.string(),
   mobile: MobileSchema,
   email: EmailSchema,
   dob: DobSchema,
   profile_url: ImageUrlSchema,
+});
 
+export type UserEntity = z.infer<typeof UserEntitySchema>;
+
+export const UserSchema = UserEntitySchema.extend({
   bizinfos: z.array(BizinfoSchema),
   lessons: z.array(LessonSchema),
   schools: z.array(SchoolSchema),
@@ -30,14 +34,9 @@ export const UserSchema = SharedUniqueSchema.extend({
 
 export type User = z.infer<typeof UserSchema>;
 
-export const UserPayloadSchema = UserSchema.omit({
+export const UserPayloadSchema = UserEntitySchema.omit({
   created_at: true,
   updated_at: true,
-  bizinfos: true,
-  lessons: true,
-  schools: true,
-  parents: true,
-  extras: true,
   mobile: true,
   dob: true,
 }).extend({ mobile: MobileSchema.nullable(), dob: DobSchema.nullable() });

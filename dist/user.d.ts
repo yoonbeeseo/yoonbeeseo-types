@@ -1,4 +1,15 @@
 import { z } from "zod";
+export declare const UserEntitySchema: z.ZodObject<{
+    id: z.ZodUUID;
+    created_at: z.ZodDate;
+    updated_at: z.ZodDate;
+    name: z.ZodString;
+    mobile: z.ZodString;
+    email: z.ZodEmail;
+    dob: z.ZodString;
+    profile_url: z.ZodNullable<z.ZodURL>;
+}, z.core.$strip>;
+export type UserEntity = z.infer<typeof UserEntitySchema>;
 export declare const UserSchema: z.ZodObject<{
     id: z.ZodUUID;
     created_at: z.ZodDate;
