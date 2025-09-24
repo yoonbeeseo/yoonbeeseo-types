@@ -15,18 +15,12 @@ export const LessonSubjectSchema = z.enum(["영어", "국어", "수학", "직접
 
 export type LessonSubject = z.infer<typeof LessonSubjectSchema>;
 
-export const LessonPriceSchema = z.object({
-  perMonth: z.number().min(0),
-  length: z.number().min(0),
-  countPerWeek: z.number().min(0),
-});
-
-export type LessonPrice = z.infer<typeof LessonPriceSchema>;
-
 export const LessonEntitySchema = SharedLinkedIntSchema.extend({
   sort: LessonSortSchema,
   subject: LessonSubjectSchema.or(z.string()),
-  price: LessonPriceSchema,
+  price: z.number().min(0),
+  length: z.number().min(0),
+  count_per_week: z.number().min(0),
 });
 
 export type LessonEntity = z.infer<typeof LessonEntitySchema>;

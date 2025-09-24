@@ -14,12 +14,6 @@ export declare const LessonSubjectSchema: z.ZodEnum<{
     직접입력: "직접입력";
 }>;
 export type LessonSubject = z.infer<typeof LessonSubjectSchema>;
-export declare const LessonPriceSchema: z.ZodObject<{
-    perMonth: z.ZodNumber;
-    length: z.ZodNumber;
-    countPerWeek: z.ZodNumber;
-}, z.core.$strip>;
-export type LessonPrice = z.infer<typeof LessonPriceSchema>;
 export declare const LessonEntitySchema: z.ZodObject<{
     created_at: z.ZodDate;
     updated_at: z.ZodDate;
@@ -38,11 +32,9 @@ export declare const LessonEntitySchema: z.ZodObject<{
         수학: "수학";
         직접입력: "직접입력";
     }>, z.ZodString]>;
-    price: z.ZodObject<{
-        perMonth: z.ZodNumber;
-        length: z.ZodNumber;
-        countPerWeek: z.ZodNumber;
-    }, z.core.$strip>;
+    price: z.ZodNumber;
+    length: z.ZodNumber;
+    count_per_week: z.ZodNumber;
 }, z.core.$strip>;
 export type LessonEntity = z.infer<typeof LessonEntitySchema>;
 export declare const LessonSchema: z.ZodObject<{
@@ -62,11 +54,9 @@ export declare const LessonSchema: z.ZodObject<{
         수학: "수학";
         직접입력: "직접입력";
     }>, z.ZodString]>;
-    price: z.ZodObject<{
-        perMonth: z.ZodNumber;
-        length: z.ZodNumber;
-        countPerWeek: z.ZodNumber;
-    }, z.core.$strip>;
+    price: z.ZodNumber;
+    length: z.ZodNumber;
+    count_per_week: z.ZodNumber;
 }, z.core.$strip>;
 export type Lesson = z.infer<typeof LessonSchema>;
 export declare const LessonPayloadSchema: z.ZodObject<{
@@ -84,10 +74,8 @@ export declare const LessonPayloadSchema: z.ZodObject<{
         수학: "수학";
         직접입력: "직접입력";
     }>, z.ZodString]>;
-    price: z.ZodObject<{
-        perMonth: z.ZodNumber;
-        length: z.ZodNumber;
-        countPerWeek: z.ZodNumber;
-    }, z.core.$strip>;
+    price: z.ZodNumber;
+    length: z.ZodNumber;
+    count_per_week: z.ZodNumber;
 }, z.core.$strip>;
 export type LessonPayload = z.infer<typeof LessonPayloadSchema>;
