@@ -8,7 +8,7 @@ import {
 import { ParentSchema } from "./parent";
 import { LessonSchema } from "./lesson";
 import { SchoolLevelSchema, SchoolSchema } from "./school.work";
-import { AddressSchema } from "./bizinfo";
+import { AddressSchema, initialAddress } from "./bizinfo";
 
 export const StudentMemoSchema = SharedLinkedIntSchema.extend({
   description: z.string(),
@@ -60,3 +60,20 @@ export const StudentPayloadSchema = StudentSchema.omit({
   created_at: true,
   updated_at: true,
 });
+
+export type StudentPayload = z.infer<typeof StudentPayloadSchema>;
+
+export const initialStudent: StudentPayload = {
+  address: initialAddress,
+  contacts: [],
+  dob: "",
+  enrolled_at: new Date(),
+  id: "",
+  lessons: [],
+  memos: [],
+  name: "",
+  parents: [],
+  payment_date: 1,
+  schools: [],
+  withdrawn_at: null,
+};

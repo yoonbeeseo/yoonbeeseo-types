@@ -12,7 +12,7 @@ export const RelationshipSchema = z.enum([
 export type Relationship = z.infer<typeof RelationshipSchema>;
 
 export const ParentEntitySchema = SharedLinkedUidSchema.extend({
-  relationship: RelationshipSchema,
+  relationship: RelationshipSchema.or(z.string()),
   mobile: z.array(MobileSchema),
   has_agreed_privacy_policy: z.date().nullable(),
   has_agreed_on_behalf: z.date().nullable(),
@@ -28,3 +28,12 @@ export const ParentPayloadSchema = ParentSchema.omit({
 });
 
 export type ParentPayload = z.infer<typeof ParentPayloadSchema>;
+
+export const initialParent: ParentPayload = {
+  has_agreed_on_behalf: null,
+  has_agreed_privacy_policy: null,
+  id: "",
+  mobile: [],
+  name: "",
+  relationship: "",
+};

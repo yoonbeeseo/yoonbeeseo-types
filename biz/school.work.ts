@@ -12,6 +12,14 @@ export const SchoolSortSchema = z.enum([
 
 export type SchoolSort = z.infer<typeof SchoolSortSchema>;
 
+export const schoolSorts: SchoolSort[] = [
+  "어린이집/유치원",
+  "초등학교",
+  "중학교",
+  "대학교",
+  "직장",
+];
+
 export const SchoolLevelSchema = z.enum([
   ...Array.from({ length: 6 }, (_, i) => `${i + 1}학년`),
   "직접입력",
@@ -19,9 +27,20 @@ export const SchoolLevelSchema = z.enum([
 
 export type SchoolLevel = z.infer<typeof SchoolLevelSchema>;
 
+export const schoolLevels: SchoolLevel[] = [
+  "1학년",
+  "2학년",
+  "3학년",
+  "4학년",
+  "5학년",
+  "6학년",
+];
+
 export const SchoolEntitySchema = SharedLinkedIntSchema.extend({
-  sort: SchoolSortSchema,
+  sort: SchoolSortSchema.or(z.string()),
   description: SchoolLevelSchema.nullable(),
+  name: z.string(),
+  level: SchoolLevelSchema.nullable(),
 });
 
 export type SchoolEntity = z.infer<typeof SchoolEntitySchema>;
@@ -36,3 +55,11 @@ export const SchoolPayloadSchema = SchoolSchema.omit({
 });
 
 export type SchoolPayload = z.infer<typeof SchoolPayloadSchema>;
+
+export const initialSchool: SchoolPayload = {
+  description: null,
+  id: 0,
+  name: "",
+  sort: "",
+  level: null,
+};

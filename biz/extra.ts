@@ -25,3 +25,11 @@ export const ExtraPayloadSchema = ExtraSchema.omit({
 });
 
 export type ExtraPayload = z.infer<typeof ExtraPayloadSchema>;
+
+export const initialExtra: ExtraPayload = {
+  id: "",
+  price: 0,
+  quan: 1,
+  sort: null,
+  title: "",
+};

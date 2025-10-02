@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExtraPayloadSchema = exports.ExtraSchema = exports.ExtraEntitySchema = exports.ExtraSortSchema = void 0;
+exports.initialExtra = exports.ExtraPayloadSchema = exports.ExtraSchema = exports.ExtraEntitySchema = exports.ExtraSortSchema = void 0;
 const zod_1 = require("zod");
 const shared_1 = require("../shared");
 const lesson_1 = require("./lesson");
@@ -17,3 +17,10 @@ exports.ExtraPayloadSchema = exports.ExtraSchema.omit({
     created_at: true,
     updated_at: true,
 });
+exports.initialExtra = {
+    id: "",
+    price: 0,
+    quan: 1,
+    sort: null,
+    title: "",
+};

@@ -2,6 +2,50 @@ import { z } from "zod";
 import { EmailSchema, MobileSchema, SharedLinkedUidSchema } from "../shared";
 import { LessonSubjectSchema } from "./lesson";
 
+export const fetchedJusoSchema = z.object({
+  admCd: z.string(),
+  bdkdcd: z.string(),
+  bdMgtSn: z.string(),
+  bdNm: z.string(),
+  buldMnnm: z.string(),
+  buldSlno: z.string(),
+  detBdNmList: z.string(),
+  emdNm: z.string(),
+  emdNo: z.string(),
+  engAddr: z.string(),
+  jibunAddr: z.string(),
+  liNm: z.string(),
+  lnbrMnnm: z.string(),
+  lnbrSlno: z.string(),
+  mtYn: z.string(),
+  rn: z.string(),
+  rnMgtSn: z.string(),
+  roadAddr: z.string(),
+  roadAddrPart1: z.string(),
+  roadAddrPart2: z.string(),
+  sggNm: z.string(),
+  siNm: z.string(),
+  udrtYn: z.string(),
+  zipNo: z.string(),
+});
+
+export type FetchedJuso = z.infer<typeof fetchedJusoSchema>;
+
+export const jusoReturnSchema = z.object({
+  results: z.object({
+    common: z.object({
+      errorMessage: z.string(),
+      countPerPage: z.string(),
+      totalCount: z.string(),
+      currentPage: z.string(),
+      errorCode: z.enum(["1", "0"]),
+    }),
+    juso: z.array(fetchedJusoSchema),
+  }),
+});
+
+export type JusoResult = z.infer<typeof jusoReturnSchema>;
+
 export const AddressSchema = z.object({
   zipcode: z.string(),
   province: z.string(),
@@ -27,10 +71,33 @@ export const BizinfoEntitySchema = SharedLinkedUidSchema.extend({
 export type BizinfoEntity = z.infer<typeof BizinfoEntitySchema>;
 
 export const BizinfoSchema = BizinfoEntitySchema.omit({ uid: true });
+
 export type Bizinfo = z.infer<typeof BizinfoSchema>;
 
 export const BizinfoPayloadSchema = BizinfoSchema.omit({
   created_at: true,
   updated_at: true,
 });
+
 export type BizinifoPayload = z.infer<typeof BizinfoPayloadSchema>;
+
+export const initialAddress: Address = {
+  city: "",
+  point: "",
+  province: "",
+  rest: "",
+  road: "",
+  road_address: "",
+  zipcode: "",
+};
+
+export const initialBizinfo: BizinifoPayload = {
+  address: initialAddress,
+  ceo: "",
+  emails: [],
+  id: "",
+  name: "",
+  regi: "",
+  subjects: [],
+  tels: [],
+};

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StudentPayloadSchema = exports.StudentSchema = exports.StudentEntitySchema = exports.StudentMemoEntitySchema = exports.StudentMemoSchema = void 0;
+exports.initialStudent = exports.StudentPayloadSchema = exports.StudentSchema = exports.StudentEntitySchema = exports.StudentMemoEntitySchema = exports.StudentMemoSchema = void 0;
 const zod_1 = require("zod");
 const shared_1 = require("../shared");
 const parent_1 = require("./parent");
@@ -44,3 +44,17 @@ exports.StudentPayloadSchema = exports.StudentSchema.omit({
     created_at: true,
     updated_at: true,
 });
+exports.initialStudent = {
+    address: bizinfo_1.initialAddress,
+    contacts: [],
+    dob: "",
+    enrolled_at: new Date(),
+    id: "",
+    lessons: [],
+    memos: [],
+    name: "",
+    parents: [],
+    payment_date: 1,
+    schools: [],
+    withdrawn_at: null,
+};
