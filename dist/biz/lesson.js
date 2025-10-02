@@ -24,6 +24,7 @@ exports.LessonEntitySchema = shared_1.SharedLinkedIntSchema.extend({
     price: zod_1.z.number().min(0),
     length: zod_1.z.number().min(0),
     count_per_week: zod_1.z.number().min(0),
+    name: zod_1.z.string(),
 });
 exports.LessonSchema = exports.LessonEntitySchema.omit({ uid: true });
 exports.LessonPayloadSchema = exports.LessonSchema.omit({

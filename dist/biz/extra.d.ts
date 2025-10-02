@@ -6,13 +6,13 @@ export declare const ExtraSortSchema: z.ZodUnion<[z.ZodEnum<{
     고등부: "고등부";
     성인부: "성인부";
 }>, z.ZodEnum<{
+    직접입력: "직접입력";
     "\uC5B4\uB9B0\uC774\uC9D1/\uC720\uCE58\uC6D0": "어린이집/유치원";
     초등학교: "초등학교";
     중학교: "중학교";
     대학교: "대학교";
     직장: "직장";
     고등학교: "고등학교";
-    직접입력: "직접입력";
 }>]>;
 export type ExtraSort = z.infer<typeof ExtraSortSchema>;
 export declare const ExtraEntitySchema: z.ZodObject<{
@@ -27,13 +27,13 @@ export declare const ExtraEntitySchema: z.ZodObject<{
         고등부: "고등부";
         성인부: "성인부";
     }>, z.ZodEnum<{
+        직접입력: "직접입력";
         "\uC5B4\uB9B0\uC774\uC9D1/\uC720\uCE58\uC6D0": "어린이집/유치원";
         초등학교: "초등학교";
         중학교: "중학교";
         대학교: "대학교";
         직장: "직장";
         고등학교: "고등학교";
-        직접입력: "직접입력";
     }>]>>;
     price: z.ZodNumber;
     quan: z.ZodNumber;
@@ -51,13 +51,13 @@ export declare const ExtraSchema: z.ZodObject<{
         고등부: "고등부";
         성인부: "성인부";
     }>, z.ZodEnum<{
+        직접입력: "직접입력";
         "\uC5B4\uB9B0\uC774\uC9D1/\uC720\uCE58\uC6D0": "어린이집/유치원";
         초등학교: "초등학교";
         중학교: "중학교";
         대학교: "대학교";
         직장: "직장";
         고등학교: "고등학교";
-        직접입력: "직접입력";
     }>]>>;
     price: z.ZodNumber;
     quan: z.ZodNumber;
@@ -73,13 +73,13 @@ export declare const ExtraPayloadSchema: z.ZodObject<{
         고등부: "고등부";
         성인부: "성인부";
     }>, z.ZodEnum<{
+        직접입력: "직접입력";
         "\uC5B4\uB9B0\uC774\uC9D1/\uC720\uCE58\uC6D0": "어린이집/유치원";
         초등학교: "초등학교";
         중학교: "중학교";
         대학교: "대학교";
         직장: "직장";
         고등학교: "고등학교";
-        직접입력: "직접입력";
     }>]>>;
     price: z.ZodNumber;
     quan: z.ZodNumber;

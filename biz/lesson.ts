@@ -29,6 +29,7 @@ export const LessonEntitySchema = SharedLinkedIntSchema.extend({
   price: z.number().min(0),
   length: z.number().min(0),
   count_per_week: z.number().min(0),
+  name: z.string(),
 });
 
 export type LessonEntity = z.infer<typeof LessonEntitySchema>;

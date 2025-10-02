@@ -38,14 +38,13 @@ export declare const UserSchema: z.ZodObject<{
         tels: z.ZodArray<z.ZodUnion<[z.ZodString, z.ZodString]>>;
         emails: z.ZodArray<z.ZodEmail>;
         subjects: z.ZodArray<z.ZodEnum<{
-            직접입력: "직접입력";
             영어: "영어";
             국어: "국어";
             수학: "수학";
+            직접입력: "직접입력";
         }>>;
     }, z.core.$strip>>;
     lessons: z.ZodArray<z.ZodObject<{
-        length: z.ZodNumber;
         id: z.ZodNumber;
         created_at: z.ZodDate;
         updated_at: z.ZodDate;
@@ -57,31 +56,33 @@ export declare const UserSchema: z.ZodObject<{
             성인부: "성인부";
         }>, z.ZodString]>;
         subject: z.ZodUnion<[z.ZodEnum<{
-            직접입력: "직접입력";
             영어: "영어";
             국어: "국어";
             수학: "수학";
+            직접입력: "직접입력";
         }>, z.ZodString]>;
         price: z.ZodNumber;
+        length: z.ZodNumber;
         count_per_week: z.ZodNumber;
+        name: z.ZodString;
     }, z.core.$strip>>;
     schools: z.ZodArray<z.ZodObject<{
         id: z.ZodNumber;
         created_at: z.ZodDate;
         updated_at: z.ZodDate;
         sort: z.ZodUnion<[z.ZodEnum<{
+            직접입력: "직접입력";
             "\uC5B4\uB9B0\uC774\uC9D1/\uC720\uCE58\uC6D0": "어린이집/유치원";
             초등학교: "초등학교";
             중학교: "중학교";
             대학교: "대학교";
             직장: "직장";
             고등학교: "고등학교";
-            직접입력: "직접입력";
         }>, z.ZodString]>;
+        name: z.ZodString;
         description: z.ZodNullable<z.ZodEnum<{
             [x: string]: string;
         }>>;
-        name: z.ZodString;
         level: z.ZodNullable<z.ZodEnum<{
             [x: string]: string;
         }>>;
@@ -113,13 +114,13 @@ export declare const UserSchema: z.ZodObject<{
             고등부: "고등부";
             성인부: "성인부";
         }>, z.ZodEnum<{
+            직접입력: "직접입력";
             "\uC5B4\uB9B0\uC774\uC9D1/\uC720\uCE58\uC6D0": "어린이집/유치원";
             초등학교: "초등학교";
             중학교: "중학교";
             대학교: "대학교";
             직장: "직장";
             고등학교: "고등학교";
-            직접입력: "직접입력";
         }>]>>;
         price: z.ZodNumber;
         quan: z.ZodNumber;

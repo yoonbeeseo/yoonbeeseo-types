@@ -36,6 +36,7 @@ export declare const LessonEntitySchema: z.ZodObject<{
     price: z.ZodNumber;
     length: z.ZodNumber;
     count_per_week: z.ZodNumber;
+    name: z.ZodString;
 }, z.core.$strip>;
 export type LessonEntity = z.infer<typeof LessonEntitySchema>;
 export declare const LessonSchema: z.ZodObject<{
@@ -58,6 +59,7 @@ export declare const LessonSchema: z.ZodObject<{
     price: z.ZodNumber;
     length: z.ZodNumber;
     count_per_week: z.ZodNumber;
+    name: z.ZodString;
 }, z.core.$strip>;
 export type Lesson = z.infer<typeof LessonSchema>;
 export declare const LessonPayloadSchema: z.ZodObject<{
@@ -78,6 +80,7 @@ export declare const LessonPayloadSchema: z.ZodObject<{
     price: z.ZodNumber;
     length: z.ZodNumber;
     count_per_week: z.ZodNumber;
+    name: z.ZodString;
 }, z.core.$strip>;
 export type LessonPayload = z.infer<typeof LessonPayloadSchema>;
 export declare const initialLesson: LessonPayload;
