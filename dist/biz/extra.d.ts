@@ -11,6 +11,7 @@ export declare const ExtraSortSchema: z.ZodUnion<[z.ZodEnum<{
     중학교: "중학교";
     대학교: "대학교";
     직장: "직장";
+    고등학교: "고등학교";
     직접입력: "직접입력";
 }>]>;
 export type ExtraSort = z.infer<typeof ExtraSortSchema>;
@@ -31,6 +32,7 @@ export declare const ExtraEntitySchema: z.ZodObject<{
         중학교: "중학교";
         대학교: "대학교";
         직장: "직장";
+        고등학교: "고등학교";
         직접입력: "직접입력";
     }>]>>;
     price: z.ZodNumber;
@@ -54,6 +56,7 @@ export declare const ExtraSchema: z.ZodObject<{
         중학교: "중학교";
         대학교: "대학교";
         직장: "직장";
+        고등학교: "고등학교";
         직접입력: "직접입력";
     }>]>>;
     price: z.ZodNumber;
@@ -75,6 +78,7 @@ export declare const ExtraPayloadSchema: z.ZodObject<{
         중학교: "중학교";
         대학교: "대학교";
         직장: "직장";
+        고등학교: "고등학교";
         직접입력: "직접입력";
     }>]>>;
     price: z.ZodNumber;

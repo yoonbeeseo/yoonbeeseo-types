@@ -7,6 +7,7 @@ export const SchoolSortSchema = z.enum([
   "중학교",
   "대학교",
   "직장",
+  "고등학교",
   "직접입력",
 ]);
 
@@ -17,6 +18,7 @@ export const schoolSorts: SchoolSort[] = [
   "초등학교",
   "중학교",
   "대학교",
+  "고등학교",
   "직장",
 ];
 

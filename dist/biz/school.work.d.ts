@@ -5,6 +5,7 @@ export declare const SchoolSortSchema: z.ZodEnum<{
     중학교: "중학교";
     대학교: "대학교";
     직장: "직장";
+    고등학교: "고등학교";
     직접입력: "직접입력";
 }>;
 export type SchoolSort = z.infer<typeof SchoolSortSchema>;
@@ -25,6 +26,7 @@ export declare const SchoolEntitySchema: z.ZodObject<{
         중학교: "중학교";
         대학교: "대학교";
         직장: "직장";
+        고등학교: "고등학교";
         직접입력: "직접입력";
     }>, z.ZodString]>;
     description: z.ZodNullable<z.ZodEnum<{
@@ -46,6 +48,7 @@ export declare const SchoolSchema: z.ZodObject<{
         중학교: "중학교";
         대학교: "대학교";
         직장: "직장";
+        고등학교: "고등학교";
         직접입력: "직접입력";
     }>, z.ZodString]>;
     description: z.ZodNullable<z.ZodEnum<{
@@ -65,6 +68,7 @@ export declare const SchoolPayloadSchema: z.ZodObject<{
         중학교: "중학교";
         대학교: "대학교";
         직장: "직장";
+        고등학교: "고등학교";
         직접입력: "직접입력";
     }>, z.ZodString]>;
     description: z.ZodNullable<z.ZodEnum<{

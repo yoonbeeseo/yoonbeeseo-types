@@ -75,6 +75,7 @@ export declare const UserSchema: z.ZodObject<{
             중학교: "중학교";
             대학교: "대학교";
             직장: "직장";
+            고등학교: "고등학교";
             직접입력: "직접입력";
         }>, z.ZodString]>;
         description: z.ZodNullable<z.ZodEnum<{
@@ -117,6 +118,7 @@ export declare const UserSchema: z.ZodObject<{
             중학교: "중학교";
             대학교: "대학교";
             직장: "직장";
+            고등학교: "고등학교";
             직접입력: "직접입력";
         }>]>>;
         price: z.ZodNumber;
