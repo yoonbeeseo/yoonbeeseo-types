@@ -1,12 +1,12 @@
 import { z } from "zod";
 export declare const SchoolSortSchema: z.ZodEnum<{
+    직접입력: "직접입력";
     "\uC5B4\uB9B0\uC774\uC9D1/\uC720\uCE58\uC6D0": "어린이집/유치원";
     초등학교: "초등학교";
     중학교: "중학교";
     대학교: "대학교";
     직장: "직장";
     고등학교: "고등학교";
-    직접입력: "직접입력";
 }>;
 export type SchoolSort = z.infer<typeof SchoolSortSchema>;
 export declare const schoolSorts: SchoolSort[];
@@ -21,13 +21,13 @@ export declare const SchoolEntitySchema: z.ZodObject<{
     id: z.ZodNumber;
     uid: z.ZodUUID;
     sort: z.ZodUnion<[z.ZodEnum<{
+        직접입력: "직접입력";
         "\uC5B4\uB9B0\uC774\uC9D1/\uC720\uCE58\uC6D0": "어린이집/유치원";
         초등학교: "초등학교";
         중학교: "중학교";
         대학교: "대학교";
         직장: "직장";
         고등학교: "고등학교";
-        직접입력: "직접입력";
     }>, z.ZodString]>;
     description: z.ZodNullable<z.ZodEnum<{
         [x: string]: string;
@@ -43,18 +43,18 @@ export declare const SchoolSchema: z.ZodObject<{
     created_at: z.ZodDate;
     updated_at: z.ZodDate;
     sort: z.ZodUnion<[z.ZodEnum<{
+        직접입력: "직접입력";
         "\uC5B4\uB9B0\uC774\uC9D1/\uC720\uCE58\uC6D0": "어린이집/유치원";
         초등학교: "초등학교";
         중학교: "중학교";
         대학교: "대학교";
         직장: "직장";
         고등학교: "고등학교";
-        직접입력: "직접입력";
     }>, z.ZodString]>;
+    name: z.ZodString;
     description: z.ZodNullable<z.ZodEnum<{
         [x: string]: string;
     }>>;
-    name: z.ZodString;
     level: z.ZodNullable<z.ZodEnum<{
         [x: string]: string;
     }>>;
@@ -63,18 +63,18 @@ export type School = z.infer<typeof SchoolSchema>;
 export declare const SchoolPayloadSchema: z.ZodObject<{
     id: z.ZodNumber;
     sort: z.ZodUnion<[z.ZodEnum<{
+        직접입력: "직접입력";
         "\uC5B4\uB9B0\uC774\uC9D1/\uC720\uCE58\uC6D0": "어린이집/유치원";
         초등학교: "초등학교";
         중학교: "중학교";
         대학교: "대학교";
         직장: "직장";
         고등학교: "고등학교";
-        직접입력: "직접입력";
     }>, z.ZodString]>;
+    name: z.ZodString;
     description: z.ZodNullable<z.ZodEnum<{
         [x: string]: string;
     }>>;
-    name: z.ZodString;
     level: z.ZodNullable<z.ZodEnum<{
         [x: string]: string;
     }>>;

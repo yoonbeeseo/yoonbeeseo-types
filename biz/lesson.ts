@@ -52,4 +52,5 @@ export const initialLesson: LessonPayload = {
   price: 0,
   sort: "",
   subject: "",
+  name: "",
 };

@@ -38,4 +38,5 @@ exports.initialLesson = {
     price: 0,
     sort: "",
     subject: "",
+    name: "",
 };

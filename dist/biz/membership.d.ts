@@ -40,8 +40,11 @@ export declare const MembershipSchema: z.ZodObject<{
     id: z.ZodNumber;
     created_at: z.ZodDate;
     updated_at: z.ZodDate;
-    iat: z.ZodNumber;
-    exp: z.ZodNumber;
+    type: z.ZodUnion<[z.ZodEnum<{
+        Free: "Free";
+        Pro: "Pro";
+        Unlimited: "Unlimited";
+    }>, z.ZodString]>;
     sort: z.ZodUnion<[z.ZodEnum<{
         Biz: "Biz";
         Teacher: "Teacher";
@@ -49,17 +52,17 @@ export declare const MembershipSchema: z.ZodObject<{
         Student: "Student";
     }>, z.ZodString]>;
     price: z.ZodUnion<readonly [z.ZodLiteral<0>, z.ZodLiteral<9900>, z.ZodLiteral<18900>, z.ZodLiteral<99000>, z.ZodLiteral<189000>]>;
-    type: z.ZodUnion<[z.ZodEnum<{
-        Free: "Free";
-        Pro: "Pro";
-        Unlimited: "Unlimited";
-    }>, z.ZodString]>;
+    iat: z.ZodNumber;
+    exp: z.ZodNumber;
     is_monthly: z.ZodBoolean;
 }, z.core.$strip>;
 export type Membership = z.infer<typeof MembershipSchema>;
 export declare const MembershipPayloadSchema: z.ZodObject<{
-    iat: z.ZodNumber;
-    exp: z.ZodNumber;
+    type: z.ZodUnion<[z.ZodEnum<{
+        Free: "Free";
+        Pro: "Pro";
+        Unlimited: "Unlimited";
+    }>, z.ZodString]>;
     sort: z.ZodUnion<[z.ZodEnum<{
         Biz: "Biz";
         Teacher: "Teacher";
@@ -67,11 +70,8 @@ export declare const MembershipPayloadSchema: z.ZodObject<{
         Student: "Student";
     }>, z.ZodString]>;
     price: z.ZodUnion<readonly [z.ZodLiteral<0>, z.ZodLiteral<9900>, z.ZodLiteral<18900>, z.ZodLiteral<99000>, z.ZodLiteral<189000>]>;
-    type: z.ZodUnion<[z.ZodEnum<{
-        Free: "Free";
-        Pro: "Pro";
-        Unlimited: "Unlimited";
-    }>, z.ZodString]>;
+    iat: z.ZodNumber;
+    exp: z.ZodNumber;
     is_monthly: z.ZodBoolean;
 }, z.core.$strip>;
 export type MembershipPayload = z.infer<typeof MembershipPayloadSchema>;
