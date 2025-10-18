@@ -37,6 +37,7 @@ export const StudentEntitySchema = SharedLinkedUidSchema.extend({
   address: AddressSchema,
   withdrawn_at: z.date().nullable(),
   memos: z.array(z.number()),
+  has_agreed_privacy_policy: z.date().nullable(),
 });
 
 export type StudentEntity = z.infer<typeof StudentEntitySchema>;
@@ -54,7 +55,7 @@ export const StudentSchema = StudentEntitySchema.omit({
   memos: z.array(StudentMemoSchema),
 });
 
-export type Studennt = z.infer<typeof StudentSchema>;
+export type Student = z.infer<typeof StudentSchema>;
 
 export const StudentPayloadSchema = StudentSchema.omit({
   created_at: true,
@@ -76,4 +77,5 @@ export const initialStudent: StudentPayload = {
   payment_date: 1,
   schools: [],
   withdrawn_at: null,
+  has_agreed_privacy_policy: null,
 };
