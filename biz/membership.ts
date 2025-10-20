@@ -24,8 +24,6 @@ export const MembershipTypeSchema = z.enum(["Free", "Pro", "Unlimited"]);
 export type MembershipType = z.infer<typeof MembershipTypeSchema>;
 
 export const MembershipEntitySchema = SharedLinkedIntSchema.extend({
-  iat: z.number(),
-  exp: z.number(),
   sort: MembershipSortSchema.or(z.string()),
   price: MembershipPriceSchema,
   type: MembershipTypeSchema.or(z.string()),
@@ -47,8 +45,6 @@ export const MembershipPayloadSchema = MembershipSchema.omit({
 export type MembershipPayload = z.infer<typeof MembershipPayloadSchema>;
 
 export const initialMembership: MembershipPayload = {
-  exp: 0,
-  iat: 0,
   is_monthly: true,
   price: 0,
   sort: "",

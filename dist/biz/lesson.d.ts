@@ -43,6 +43,7 @@ export declare const LessonSchema: z.ZodObject<{
     id: z.ZodNumber;
     created_at: z.ZodDate;
     updated_at: z.ZodDate;
+    length: z.ZodNumber;
     sort: z.ZodUnion<[z.ZodEnum<{
         유치부: "유치부";
         초등부: "초등부";
@@ -57,13 +58,13 @@ export declare const LessonSchema: z.ZodObject<{
         직접입력: "직접입력";
     }>, z.ZodString]>;
     price: z.ZodNumber;
-    length: z.ZodNumber;
     count_per_week: z.ZodNumber;
     name: z.ZodString;
 }, z.core.$strip>;
 export type Lesson = z.infer<typeof LessonSchema>;
 export declare const LessonPayloadSchema: z.ZodObject<{
     id: z.ZodNumber;
+    length: z.ZodNumber;
     sort: z.ZodUnion<[z.ZodEnum<{
         유치부: "유치부";
         초등부: "초등부";
@@ -78,7 +79,6 @@ export declare const LessonPayloadSchema: z.ZodObject<{
         직접입력: "직접입력";
     }>, z.ZodString]>;
     price: z.ZodNumber;
-    length: z.ZodNumber;
     count_per_week: z.ZodNumber;
     name: z.ZodString;
 }, z.core.$strip>;

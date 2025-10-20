@@ -53,6 +53,7 @@ export declare const StudentEntitySchema: z.ZodObject<{
     }, z.core.$strip>;
     withdrawn_at: z.ZodNullable<z.ZodDate>;
     memos: z.ZodArray<z.ZodNumber>;
+    has_agreed_privacy_policy: z.ZodNullable<z.ZodDate>;
 }, z.core.$strip>;
 export type StudentEntity = z.infer<typeof StudentEntitySchema>;
 export declare const StudentSchema: z.ZodObject<{
@@ -60,15 +61,6 @@ export declare const StudentSchema: z.ZodObject<{
     created_at: z.ZodDate;
     updated_at: z.ZodDate;
     name: z.ZodString;
-    dob: z.ZodString;
-    enrolled_at: z.ZodDate;
-    payment_date: z.ZodNumber;
-    contacts: z.ZodArray<z.ZodObject<{
-        id: z.ZodNumber;
-        is_student: z.ZodBoolean;
-        value: z.ZodUnion<[z.ZodString, z.ZodString]>;
-        is_favorite: z.ZodBoolean;
-    }, z.core.$strip>>;
     address: z.ZodObject<{
         zipcode: z.ZodString;
         province: z.ZodString;
@@ -78,6 +70,16 @@ export declare const StudentSchema: z.ZodObject<{
         rest: z.ZodString;
         road_address: z.ZodString;
     }, z.core.$strip>;
+    has_agreed_privacy_policy: z.ZodNullable<z.ZodDate>;
+    dob: z.ZodString;
+    enrolled_at: z.ZodDate;
+    payment_date: z.ZodNumber;
+    contacts: z.ZodArray<z.ZodObject<{
+        id: z.ZodNumber;
+        is_student: z.ZodBoolean;
+        value: z.ZodUnion<[z.ZodString, z.ZodString]>;
+        is_favorite: z.ZodBoolean;
+    }, z.core.$strip>>;
     withdrawn_at: z.ZodNullable<z.ZodDate>;
     parents: z.ZodArray<z.ZodObject<{
         id: z.ZodUUID;
@@ -99,6 +101,7 @@ export declare const StudentSchema: z.ZodObject<{
         id: z.ZodNumber;
         created_at: z.ZodDate;
         updated_at: z.ZodDate;
+        length: z.ZodNumber;
         sort: z.ZodUnion<[z.ZodEnum<{
             유치부: "유치부";
             초등부: "초등부";
@@ -113,7 +116,6 @@ export declare const StudentSchema: z.ZodObject<{
             직접입력: "직접입력";
         }>, z.ZodString]>;
         price: z.ZodNumber;
-        length: z.ZodNumber;
         count_per_week: z.ZodNumber;
         name: z.ZodString;
     }, z.core.$strip>>;
@@ -148,10 +150,20 @@ export declare const StudentSchema: z.ZodObject<{
         created_by: z.ZodUUID;
     }, z.core.$strip>>;
 }, z.core.$strip>;
-export type Studennt = z.infer<typeof StudentSchema>;
+export type Student = z.infer<typeof StudentSchema>;
 export declare const StudentPayloadSchema: z.ZodObject<{
     id: z.ZodUUID;
     name: z.ZodString;
+    address: z.ZodObject<{
+        zipcode: z.ZodString;
+        province: z.ZodString;
+        city: z.ZodString;
+        point: z.ZodString;
+        road: z.ZodString;
+        rest: z.ZodString;
+        road_address: z.ZodString;
+    }, z.core.$strip>;
+    has_agreed_privacy_policy: z.ZodNullable<z.ZodDate>;
     parents: z.ZodArray<z.ZodObject<{
         id: z.ZodUUID;
         created_at: z.ZodDate;
@@ -172,6 +184,7 @@ export declare const StudentPayloadSchema: z.ZodObject<{
         id: z.ZodNumber;
         created_at: z.ZodDate;
         updated_at: z.ZodDate;
+        length: z.ZodNumber;
         sort: z.ZodUnion<[z.ZodEnum<{
             유치부: "유치부";
             초등부: "초등부";
@@ -186,7 +199,6 @@ export declare const StudentPayloadSchema: z.ZodObject<{
             직접입력: "직접입력";
         }>, z.ZodString]>;
         price: z.ZodNumber;
-        length: z.ZodNumber;
         count_per_week: z.ZodNumber;
         name: z.ZodString;
     }, z.core.$strip>>;
@@ -220,15 +232,6 @@ export declare const StudentPayloadSchema: z.ZodObject<{
         value: z.ZodUnion<[z.ZodString, z.ZodString]>;
         is_favorite: z.ZodBoolean;
     }, z.core.$strip>>;
-    address: z.ZodObject<{
-        zipcode: z.ZodString;
-        province: z.ZodString;
-        city: z.ZodString;
-        point: z.ZodString;
-        road: z.ZodString;
-        rest: z.ZodString;
-        road_address: z.ZodString;
-    }, z.core.$strip>;
     withdrawn_at: z.ZodNullable<z.ZodDate>;
     memos: z.ZodArray<z.ZodObject<{
         created_at: z.ZodDate;

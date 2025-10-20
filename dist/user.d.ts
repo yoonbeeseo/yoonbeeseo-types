@@ -24,6 +24,10 @@ export declare const UserSchema: z.ZodObject<{
         created_at: z.ZodDate;
         updated_at: z.ZodDate;
         name: z.ZodString;
+        ceo: z.ZodString;
+        regi: z.ZodString;
+        tels: z.ZodArray<z.ZodUnion<[z.ZodString, z.ZodString]>>;
+        emails: z.ZodArray<z.ZodEmail>;
         address: z.ZodObject<{
             zipcode: z.ZodString;
             province: z.ZodString;
@@ -33,10 +37,6 @@ export declare const UserSchema: z.ZodObject<{
             rest: z.ZodString;
             road_address: z.ZodString;
         }, z.core.$strip>;
-        ceo: z.ZodString;
-        regi: z.ZodString;
-        tels: z.ZodArray<z.ZodUnion<[z.ZodString, z.ZodString]>>;
-        emails: z.ZodArray<z.ZodEmail>;
         subjects: z.ZodArray<z.ZodEnum<{
             영어: "영어";
             국어: "국어";
@@ -55,16 +55,16 @@ export declare const UserSchema: z.ZodObject<{
             고등부: "고등부";
             성인부: "성인부";
         }>, z.ZodString]>;
+        price: z.ZodNumber;
+        name: z.ZodString;
+        length: z.ZodNumber;
         subject: z.ZodUnion<[z.ZodEnum<{
             영어: "영어";
             국어: "국어";
             수학: "수학";
             직접입력: "직접입력";
         }>, z.ZodString]>;
-        price: z.ZodNumber;
-        length: z.ZodNumber;
         count_per_week: z.ZodNumber;
-        name: z.ZodString;
     }, z.core.$strip>>;
     schools: z.ZodArray<z.ZodObject<{
         id: z.ZodNumber;
@@ -92,6 +92,7 @@ export declare const UserSchema: z.ZodObject<{
         created_at: z.ZodDate;
         updated_at: z.ZodDate;
         name: z.ZodString;
+        mobile: z.ZodArray<z.ZodString>;
         relationship: z.ZodUnion<[z.ZodEnum<{
             직접입력: "직접입력";
             부: "부";
@@ -99,7 +100,6 @@ export declare const UserSchema: z.ZodObject<{
             할아버지: "할아버지";
             할머니: "할머니";
         }>, z.ZodString]>;
-        mobile: z.ZodArray<z.ZodString>;
         has_agreed_privacy_policy: z.ZodNullable<z.ZodDate>;
         has_agreed_on_behalf: z.ZodNullable<z.ZodDate>;
     }, z.core.$strip>>;
@@ -131,9 +131,9 @@ export type User = z.infer<typeof UserSchema>;
 export declare const UserPayloadSchema: z.ZodObject<{
     id: z.ZodUUID;
     name: z.ZodString;
-    dob: z.ZodNullable<z.ZodString>;
     mobile: z.ZodNullable<z.ZodString>;
     email: z.ZodEmail;
+    dob: z.ZodNullable<z.ZodString>;
     profile_url: z.ZodNullable<z.ZodURL>;
 }, z.core.$strip>;
 export type UserPayload = z.infer<typeof UserPayloadSchema>;

@@ -27,6 +27,7 @@ exports.StudentEntitySchema = shared_1.SharedLinkedUidSchema.extend({
     address: bizinfo_1.AddressSchema,
     withdrawn_at: zod_1.z.date().nullable(),
     memos: zod_1.z.array(zod_1.z.number()),
+    has_agreed_privacy_policy: zod_1.z.date().nullable(),
 });
 exports.StudentSchema = exports.StudentEntitySchema.omit({
     uid: true,
@@ -57,4 +58,5 @@ exports.initialStudent = {
     payment_date: 1,
     schools: [],
     withdrawn_at: null,
+    has_agreed_privacy_policy: null,
 };

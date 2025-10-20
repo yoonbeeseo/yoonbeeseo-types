@@ -18,8 +18,6 @@ exports.MembershipPriceSchema = zod_1.z.union([
 ]);
 exports.MembershipTypeSchema = zod_1.z.enum(["Free", "Pro", "Unlimited"]);
 exports.MembershipEntitySchema = shared_1.SharedLinkedIntSchema.extend({
-    iat: zod_1.z.number(),
-    exp: zod_1.z.number(),
     sort: exports.MembershipSortSchema.or(zod_1.z.string()),
     price: exports.MembershipPriceSchema,
     type: exports.MembershipTypeSchema.or(zod_1.z.string()),
@@ -32,8 +30,6 @@ exports.MembershipPayloadSchema = exports.MembershipSchema.omit({
     id: true,
 });
 exports.initialMembership = {
-    exp: 0,
-    iat: 0,
     is_monthly: true,
     price: 0,
     sort: "",

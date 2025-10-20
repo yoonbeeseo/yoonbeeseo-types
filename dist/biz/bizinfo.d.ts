@@ -109,6 +109,10 @@ export declare const BizinfoSchema: z.ZodObject<{
     created_at: z.ZodDate;
     updated_at: z.ZodDate;
     name: z.ZodString;
+    ceo: z.ZodString;
+    regi: z.ZodString;
+    tels: z.ZodArray<z.ZodUnion<[z.ZodString, z.ZodString]>>;
+    emails: z.ZodArray<z.ZodEmail>;
     address: z.ZodObject<{
         zipcode: z.ZodString;
         province: z.ZodString;
@@ -118,10 +122,6 @@ export declare const BizinfoSchema: z.ZodObject<{
         rest: z.ZodString;
         road_address: z.ZodString;
     }, z.core.$strip>;
-    ceo: z.ZodString;
-    regi: z.ZodString;
-    tels: z.ZodArray<z.ZodUnion<[z.ZodString, z.ZodString]>>;
-    emails: z.ZodArray<z.ZodEmail>;
     subjects: z.ZodArray<z.ZodEnum<{
         영어: "영어";
         국어: "국어";
@@ -133,6 +133,10 @@ export type Bizinfo = z.infer<typeof BizinfoSchema>;
 export declare const BizinfoPayloadSchema: z.ZodObject<{
     id: z.ZodUUID;
     name: z.ZodString;
+    ceo: z.ZodString;
+    regi: z.ZodString;
+    tels: z.ZodArray<z.ZodUnion<[z.ZodString, z.ZodString]>>;
+    emails: z.ZodArray<z.ZodEmail>;
     address: z.ZodObject<{
         zipcode: z.ZodString;
         province: z.ZodString;
@@ -142,10 +146,6 @@ export declare const BizinfoPayloadSchema: z.ZodObject<{
         rest: z.ZodString;
         road_address: z.ZodString;
     }, z.core.$strip>;
-    ceo: z.ZodString;
-    regi: z.ZodString;
-    tels: z.ZodArray<z.ZodUnion<[z.ZodString, z.ZodString]>>;
-    emails: z.ZodArray<z.ZodEmail>;
     subjects: z.ZodArray<z.ZodEnum<{
         영어: "영어";
         국어: "국어";

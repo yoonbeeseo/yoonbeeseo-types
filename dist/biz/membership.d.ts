@@ -19,8 +19,6 @@ export declare const MembershipEntitySchema: z.ZodObject<{
     updated_at: z.ZodDate;
     id: z.ZodNumber;
     uid: z.ZodUUID;
-    iat: z.ZodNumber;
-    exp: z.ZodNumber;
     sort: z.ZodUnion<[z.ZodEnum<{
         Biz: "Biz";
         Teacher: "Teacher";
@@ -40,11 +38,6 @@ export declare const MembershipSchema: z.ZodObject<{
     id: z.ZodNumber;
     created_at: z.ZodDate;
     updated_at: z.ZodDate;
-    type: z.ZodUnion<[z.ZodEnum<{
-        Free: "Free";
-        Pro: "Pro";
-        Unlimited: "Unlimited";
-    }>, z.ZodString]>;
     sort: z.ZodUnion<[z.ZodEnum<{
         Biz: "Biz";
         Teacher: "Teacher";
@@ -52,17 +45,15 @@ export declare const MembershipSchema: z.ZodObject<{
         Student: "Student";
     }>, z.ZodString]>;
     price: z.ZodUnion<readonly [z.ZodLiteral<0>, z.ZodLiteral<9900>, z.ZodLiteral<18900>, z.ZodLiteral<99000>, z.ZodLiteral<189000>]>;
-    iat: z.ZodNumber;
-    exp: z.ZodNumber;
+    type: z.ZodUnion<[z.ZodEnum<{
+        Free: "Free";
+        Pro: "Pro";
+        Unlimited: "Unlimited";
+    }>, z.ZodString]>;
     is_monthly: z.ZodBoolean;
 }, z.core.$strip>;
 export type Membership = z.infer<typeof MembershipSchema>;
 export declare const MembershipPayloadSchema: z.ZodObject<{
-    type: z.ZodUnion<[z.ZodEnum<{
-        Free: "Free";
-        Pro: "Pro";
-        Unlimited: "Unlimited";
-    }>, z.ZodString]>;
     sort: z.ZodUnion<[z.ZodEnum<{
         Biz: "Biz";
         Teacher: "Teacher";
@@ -70,8 +61,11 @@ export declare const MembershipPayloadSchema: z.ZodObject<{
         Student: "Student";
     }>, z.ZodString]>;
     price: z.ZodUnion<readonly [z.ZodLiteral<0>, z.ZodLiteral<9900>, z.ZodLiteral<18900>, z.ZodLiteral<99000>, z.ZodLiteral<189000>]>;
-    iat: z.ZodNumber;
-    exp: z.ZodNumber;
+    type: z.ZodUnion<[z.ZodEnum<{
+        Free: "Free";
+        Pro: "Pro";
+        Unlimited: "Unlimited";
+    }>, z.ZodString]>;
     is_monthly: z.ZodBoolean;
 }, z.core.$strip>;
 export type MembershipPayload = z.infer<typeof MembershipPayloadSchema>;

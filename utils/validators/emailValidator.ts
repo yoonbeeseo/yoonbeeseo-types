@@ -32,7 +32,7 @@ export const emailValidator = (
         return "중복된 이메일입니다.";
       }
     }
-    console.log(res);
+
     return null;
   } catch (error: any) {
     return error.message;
