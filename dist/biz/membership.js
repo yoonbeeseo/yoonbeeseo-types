@@ -23,7 +23,9 @@ exports.MembershipEntitySchema = shared_1.SharedLinkedIntSchema.extend({
     type: exports.MembershipTypeSchema.or(zod_1.z.string()),
     is_monthly: zod_1.z.boolean(),
 });
-exports.MembershipSchema = exports.MembershipEntitySchema.omit({ uid: true });
+exports.MembershipSchema = exports.MembershipEntitySchema.omit({
+    uid: true,
+}).extend({ is_expired: zod_1.z.boolean() });
 exports.MembershipPayloadSchema = exports.MembershipSchema.omit({
     created_at: true,
     updated_at: true,
@@ -34,4 +36,5 @@ exports.initialMembership = {
     price: 0,
     sort: "",
     type: "",
+    is_expired: false,
 };

@@ -32,7 +32,9 @@ export const MembershipEntitySchema = SharedLinkedIntSchema.extend({
 
 export type MemberhipEntity = z.infer<typeof MembershipEntitySchema>;
 
-export const MembershipSchema = MembershipEntitySchema.omit({ uid: true });
+export const MembershipSchema = MembershipEntitySchema.omit({
+  uid: true,
+}).extend({ is_expired: z.boolean() });
 
 export type Membership = z.infer<typeof MembershipSchema>;
 
@@ -49,4 +51,5 @@ export const initialMembership: MembershipPayload = {
   price: 0,
   sort: "",
   type: "",
+  is_expired: false,
 };

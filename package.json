@@ -1,6 +1,6 @@
 {
   "name": "@yoontec/yoonbeeseo-types",
-  "version": "0.0.1472",
+  "version": "0.0.1474",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

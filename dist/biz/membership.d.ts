@@ -51,6 +51,7 @@ export declare const MembershipSchema: z.ZodObject<{
         Unlimited: "Unlimited";
     }>, z.ZodString]>;
     is_monthly: z.ZodBoolean;
+    is_expired: z.ZodBoolean;
 }, z.core.$strip>;
 export type Membership = z.infer<typeof MembershipSchema>;
 export declare const MembershipPayloadSchema: z.ZodObject<{
@@ -67,6 +68,7 @@ export declare const MembershipPayloadSchema: z.ZodObject<{
         Unlimited: "Unlimited";
     }>, z.ZodString]>;
     is_monthly: z.ZodBoolean;
+    is_expired: z.ZodBoolean;
 }, z.core.$strip>;
 export type MembershipPayload = z.infer<typeof MembershipPayloadSchema>;
 export declare const initialMembership: MembershipPayload;
